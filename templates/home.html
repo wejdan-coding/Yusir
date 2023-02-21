@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href= "{{url_for('static',filename='css/style2.css')}}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="{{url_for('static',filename='YUSIR-LOGO.png')}}">
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/61a345d90f.js"
+      crossorigin="anonymous"
+    ></script>
+	  <style>
+      .chosen{
+        background-color: #71767948;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="leftSide">
+      <div>
+        <img class="logo-img" src="{{url_for('static',filename='logo.jpg')}}" alt="logo image" />
+      </div>
+      <div class="user">
+        <img src="{{url_for('static',filename='user.png')}}" alt="user image" height="60" width="60" />
+        <p></p>
+        <p>{{ g.user.username }}</p>
+      </div>
+      <div id="menu">
+        <div>
+          <button type="button" class="btn1 chosen">
+            <i class="fa-solid fa-house icons"></i> Dashboard
+          </button>
+        </div>
+        <div>
+          <button type="button" class="btn1">
+            <i class="fa-sharp fa-solid fa-circle-plus icons"></i><a href="{{url_for('addIntersection')}}" style="text-decoration: none; color: black;">Add Intersection</a>
+          </button>
+        </div>
+        <div>
+          <button type="button" class="btn1">
+            <i class="fa-sharp fa-solid fa-trash icons"></i> Delete Intersection
+          </button>
+        </div>
+        <div>
+          <button type="button" class="btn1">
+            <i class="fa-solid fa-square-pen icons"></i> Edit Intersection
+          </button>
+        </div>
+      </div>
+
+      <div style="margin-left: 13%;">
+        <a class="logout" href="{{url_for('logout')}}" style="color: gray">
+          <i class="fa-solid fa-arrow-right-from-bracket margin fa-xl"></i> Exit
+        </a>
+      </div>
+    </div>
+
+    <div class="rightSide">
+      <div class="top-rightSide">
+        <div id="status_container">
+          <h4>Intersection information</h4>
+		  <p id="inter-name">Intersection name</p>
+		  <div id="inter-div">{{intersection_name}}</div><p></p><p></p> 
+		  <p id="inter-name">Intersection status</p>
+		  <div id="inter-div">{{intersection_stat}}</div>
+        </div>
+
+        <div id="congestion_container">
+          <h4 style="color: black">Congestion</h4>
+		  <div id="analysis">
+			<ul>
+        <li>150</li>
+        <li>140</li>			
+        <li>130</li>
+        <li>120</li>			
+        <li>110</li>
+        <li>100</li>
+			<li>&nbsp;90</li>
+			<li>&nbsp;80</li>
+			<li>&nbsp;70</li>
+			<li>&nbsp;60</li>
+			<li>&nbsp;50</li>
+			<li>&nbsp;40</li>
+			<li>&nbsp;30</li>
+			<li>&nbsp;20</li>
+			<li>&nbsp;10</li>
+			<li>&nbsp;&nbsp;0</li>
+			</ul>
+		  <canvas id="smallCanvas"></canvas>
+		  </div>
+		  <p></p>
+		  <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sun
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mun
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tus
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wen
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thu
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fri
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sat</h6>
+        </div>
+      </div>
+<script type="text/javascript">
+	  function drawBkg(ctx, width, height, squareSize, minorLineWidthStr, lineColStr) {
+	  var nLinesDone = 0;
+	  var i, curX, curY;
+	  ctx.clearRect(0, 0, width, height);
+	  ctx.strokeStyle = lineColStr;
+  // draw the vertical lines
+  /*curX = 0;
+  
+  while (curX <= width*2) {
+    //if (nLinesDone % 5 == 0)
+      ctx.lineWidth = 0.3;
+    //else
+      //ctx.lineWidth = minorLineWidthStr;
+    ctx.beginPath();
+    ctx.moveTo(curX, 0);
+    ctx.lineTo(curX, height*2);
+    ctx.stroke();
+    curX += squareSize;
+    nLinesDone++;
+  }*/
+
+  // draw the horizontal lines
+	  curY = 0;
+	  nLinesDone = 0;
+	while (curY <= height*2) {
+    //if (nLinesDone % 5 == 0)
+      ctx.lineWidth = 0.3;
+    //else
+      //ctx.lineWidth = minorLineWidthStr;
+	  ctx.beginPath();
+      ctx.moveTo(0, curY);
+      ctx.lineTo(width, curY);
+      ctx.stroke();
+      curY += squareSize;
+      nLinesDone++;
+     }
+    }
+
+// your drawings
+var smallCanvas = document.getElementById('smallCanvas');
+var smallCtx = smallCanvas.getContext('2d');
+drawBkg(smallCtx, 600, 100, 10, "0.2", "black");
+
+// a function to get the screen's ppi
+function getPPI() {
+  var test = document.createElement('div');
+  test.style.width = "1in";
+  test.style.height = 0;
+  document.body.appendChild(test);
+  var dpi = devicePixelRatio || 1;
+  var ppi = parseInt(getComputedStyle(test).width) * dpi;
+  document.body.removeChild(test);
+  return ppi;
+}
+let x =50;
+//draw points
+smallCtx.beginPath();
+smallCtx.arc(20,  "{{g.results[0]}}" , 2.5, 0, 2 * Math.PI);
+smallCtx.arc(70,  "{{g.results[1]}}", 2.5, 0, 2 * Math.PI);
+smallCtx.arc(110, "{{g.results[2]}}", 2.5, 0, 2 * Math.PI);
+smallCtx.arc(150, "{{g.results[3]}}"  , 2.5, 0, 2 * Math.PI);
+smallCtx.arc(200, "{{g.results[4]}}" , 2.5, 0, 2 * Math.PI);
+smallCtx.arc(240, "{{g.results[5]}}" , 2.5, 0, 2 * Math.PI);
+smallCtx.arc(280, "{{g.results[6]}}"  , 2.5, 0, 2 * Math.PI);
+smallCtx.stroke();
+x = x +50;
+
+function assign_intersection(intersection_name){
+  window.location.replace("/home?int_name="+int_name);
+}
+
+</script>
+
+        <div id="intersection_container">
+          <h4 style="color: black">Intersections</h4>
+          <div class="intersections">
+            {% for item in intersections %}
+            <div class="Intersection" onclick="assign_intersection('{{item}}')">{{item}}</div>
+            {% endfor %}
+          </div>
+        </div>
+      
+    </div>
+  </body>
+</html>

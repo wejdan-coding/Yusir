@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Intersection</title>
+    <!-- <link rel = "stylesheet" href ="style2.css">  -->
+    <link rel="icon" href="{{url_for('static',filename='YUSIR-LOGO.png')}}">
+    <script
+    src="https://kit.fontawesome.com/61a345d90f.js"
+    crossorigin="anonymous"
+  ></script>
+
+  </head>
+  <style>
+    h2,
+    h3 {
+      color: white;
+      text-align: center;
+    }
+
+    input {
+      width: 43%;
+      border-radius: 0.4cm;
+      margin-left: 3%;
+      border-style: none;
+      line-height: 40px;
+      padding-left: 2%;
+    }
+    .addButton {
+      background-color: #358bab;
+    }
+    .add-leftSide {
+      /* background-color: #bce2bce1; */
+      position: absolute;
+      width: 20%;
+      height: 95%;
+    }
+    .add-rightSide {
+      background-color: #eff2ef;
+      position: absolute;
+      width: 68%;
+      height: 95%;
+      float: right;
+      left: 29%;
+      border-radius: 1cm;
+      padding: 1%;
+    }
+    .Coordinates {
+      background-color: #2a4858;
+      width: 50%;
+      height: 95%;
+      border-radius: 1cm;
+      float: left;
+    }
+    .Add-btn {
+      text-align: center;
+      width: 25%;
+      line-height: 20%;
+      border-radius: 1cm;
+      border-style: none;
+      margin-top: 3%;
+    }
+    .intersectionName {
+      background-color: #4d8fa2;
+      width: 48%;
+      height: 25%;
+      border-radius: 1cm;
+      position: relative;
+      float: right;
+    }
+    .locationImg {
+      background-color: #93999d;
+      width: 45%;
+      border-radius: 1cm;
+      position: relative;
+      float: right;
+      padding: 1%;
+      margin-top: 4%;
+      text-align: center;
+    }
+    .CoordinatesInputs {
+      margin-right: 6%;
+      margin-bottom: 6%;
+    }
+    .inputName {
+      width: 70%;
+	  margin-left: 14%;
+    }
+  
+.leftSide {
+  width: 25%;
+  height: 100%;
+  float: left;
+}
+.logo-img {
+  height: 40%;
+  width: 40%;
+  margin-top: 5%;
+  margin-left: 20%;
+}
+.user {
+  width: 30%;
+  text-align: center;
+  margin-top: 8%;
+  margin-left: 20%;
+}
+#menu {
+  margin-top: 17%;
+  margin-left: 5%;
+}
+.btn1 {
+  width: 60%;
+  line-height: 220%;
+  margin-bottom: 10%;
+  margin-left: 5%;
+  border-radius: 0.5cm;
+  text-align: left;
+  background-color: #ffff; 
+
+  /* text-align: center;
+      width: 25%;
+      line-height: 20%;
+      border-radius: 1cm;
+      border-style: none;
+      margin-top: 3%; */
+}
+button {
+  border-width: 0px;
+ 
+}
+button:hover {
+  background-color: #edece9;
+}
+.icons {
+  margin-right: 10%;
+  margin-left: 5%;
+}
+.chosen{
+  background-color: #71767948;
+}
+
+
+  </style>
+
+  <body>
+    <div class="leftSide">
+    <div>
+      <!-- <img class="logo-img" src="{{url_for('static',filename='logo.jpg')}}" alt="logo image" /> -->
+      <img class="logo-img" src="{{url_for('static',filename='logo.jpg')}}" alt="logo image" />
+    </div>
+    <div class="user">
+      <!-- <img src="{{url_for('static',filename='user.png')}}" alt="user image" height="60" width="60" /> -->
+      <img class="logo-img" src="{{url_for('static',filename='user.png')}}" alt="logo image" />
+      <p></p>
+      <p>Sara Altamimi</p>
+    </div>
+    <div id="menu">
+      <div>
+        <button type="button" class="btn1">
+          <i class="fa-solid fa-house icons"></i><a class="logout" href="{{url_for('home')}}" style="text-decoration: none; color: black;">Dashboard</a>
+        </button>
+      </div>
+      <div>
+        <button type="button" class="btn1 chosen" >
+          <i class="fa-sharp fa-solid fa-circle-plus icons"></i> Add Intersection
+        </button>
+      </div>
+      <div>
+        <button type="button" class="btn1">
+          <i class="fa-sharp fa-solid fa-trash icons"></i> Delete Intersection
+        </button>
+      </div>
+      <div>
+        <button type="button" class="btn1">
+          <i class="fa-solid fa-square-pen icons"></i> Edit Intersection
+        </button>
+      </div>
+    </div>
+    <div style="margin-left: 13%;">
+      <a class="logout" href="{{url_for('logout')}}" style="color: gray">
+        <i class="fa-solid fa-arrow-right-from-bracket margin fa-xl"></i> Exit
+      </a>
+    </div>
+  </div>
+    <!-- ----------------------------------------------------------------------------------------------------------------- -->
+    
+    
+
+    <div class="add-rightSide">
+      <div class="Coordinates">
+        <h2>Add your coordinates</h2>
+        <form action="/addIntersection" method="POST">
+        <div class="CoordinatesInputs">
+          <input
+            type="text"
+            placeholder="Enter origin point latitude"
+            name="latitudeP0"
+            size="20"
+            pattern="[^',{}:;()%*!\\/\]<#>$[A-Za-z]+"
+            maxlength="20"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Enter origin point longitude"
+            name="longitudeP0"
+            pattern="[^',{}:;()%*!\\/\]<#>$[A-Za-z]+"
+            maxlength="20"
+            size="20"
+            required
+          />
+        </div>
+
+        <!-- ---------------------------- -->
+        <br />
+        <div class="CoordinatesInputs">
+          <input
+            type="text"
+            placeholder="Enter line 1 point latitude"
+            name="latitudeP1"
+            pattern="[^',{}:;()%*!\\/\]<#>$[A-Za-z]+"
+            maxlength="20"
+            size="20"
+            required
+          />
+
+          <input
+            type="text"
+            placeholder="Enter line 1 point longitude"
+            name="longitudeP1"
+            pattern="[^',{}:;()%*!\\/\]<#>$[A-Za-z]+"
+            maxlength="20"
+            size="20"
+            required
+          />
+        </div>
+
+        <!-- ---------------------------- -->
+        <br />
+        <div class="CoordinatesInputs">
+          <input
+            type="text"
+            placeholder="Enter line 2 point latitude"
+            name="latitudeP2"
+            pattern="[^',{}:;()%*!\\/\]<#>$[A-Za-z]+"
+            maxlength="20"
+            size="20"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Enter line 2 point longitude"
+            name="longitudeP2"
+            pattern="[^',{}:;()%*!\\/\]<#>$[A-Za-z]+"
+            maxlength="20"
+            size="20"
+            required
+          />
+        </div>
+
+        <!-- ---------------------------- -->
+        <br />
+        <div class="CoordinatesInputs">
+          <input
+            type="text"
+            placeholder="Enter line 3 point latitude"
+            name="latitudeP3"
+            pattern="[^',{}:;()%*!\\/\]<#>$[A-Za-z]+"
+            maxlength="20"
+            size="20"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Enter line 3 point longitude"
+            name="longitudeP3"
+            pattern="[^',{}:;()%*!\\/\]<#>$[A-Za-z]+"
+            maxlength="20"
+            size="20"
+            required
+          />
+        </div>
+
+        <!-- ---------------------------- -->
+        <br />
+        <div class="CoordinatesInputs">
+          <input
+            type="text"
+            placeholder="Enter line 4 point latitude"
+            name="latitudeP4"
+            pattern="[^',{}:;()%*!\\/\]<#>$[A-Za-z]+"
+            maxlength="20"
+            size="20"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Enter line 4 point longitude"
+            name="longitudeP4"
+            pattern="[^',{}:;()%*!\\/\]<#>$[A-Za-z]+"
+            maxlength="20"
+            size="20"
+            required
+          />
+        </div>
+
+        <center>
+          <div>
+            <button class="addButton  Add-btn"
+              type="submit"
+              onclick="alert ('Intersection successfully added')"  
+            >
+              <h3>ADD</h3>
+            </button>
+          </div>
+        </center>
+
+        <!-- ---------------------------- -->
+      </div>
+      <div class="intersectionName">
+        <h2>Enter Intersection Name:</h2>
+        <input
+          class="inputName"
+          type="text"
+          placeholder="Enter the intersection name:"
+          name="intersectionName"
+          pattern="[^',{}:;()%*!\\/\]<#>$+"
+          maxlength="26"
+          size="20"
+          required
+        />
+      </div>
+    </form>
+      <div class="locationImg">
+        <img
+          src="{{url_for('static',filename='location.png')}}"
+          alt="locationImg"
+          width="388px"
+          height="354px"
+		  style = "border-radius: 1cm;"
+        />
+      </div>
+    </div>
+
+    
+  </body>
+</html>

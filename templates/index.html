@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <!-- <link rel = "stylesheet" href ="style2.css">  -->
+  <link rel="icon" href="{{url_for('static',filename='YUSIR-LOGO.png')}}">
+</head>
+<style>
+  body {
+    background-color: #11778e;
+  }
+
+  h1 {
+    color: white;
+
+  }
+
+  h3 {
+    color: #11778e;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .homeLogo {
+    width: 300px;
+    height: 250px;
+    margin-top: 4%;
+
+  }
+
+  .GetStart_Btn {
+    width: 170px;
+    border-radius: 0.7cm;
+    margin-top: 3%;
+    border-style: none;
+  }
+
+  .vision {
+    width: 40%;
+    font-size: 150%;
+    color: white;
+  }
+
+  .terms {
+    margin-top: 7%;
+  }
+</style>
+
+<body>
+  <center>
+    <img class="homeLogo" src="{{url_for('static',filename='white.png')}}" alt="logo image" />
+    <br>
+    <h1>Our vision</h1>
+    <div class="vision">
+      <p>To create a safe, efficient, and sustainable transportation system that enhances the lives
+        of individuals and communities through the power of IoT technology.</p>
+    </div>
+
+    <button type="submit" class="GetStart_Btn">
+      <a href="{{url_for('login')}}"><h3>Get Started</h3></a>
+    </button>
+    <br>
+    <div class="terms">
+      <a href="{{url_for('terms')}}">Terms & Conditions</a>
+    </div>
+
+  </center>
+
+</body>
+</html>

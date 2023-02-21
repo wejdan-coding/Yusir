@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="icon" href="{{url_for('static',filename='YUSIR-LOGO.png')}}">
+    <link rel="stylesheet" href= "{{url_for('static',filename='css/style2.css')}}" />
+  </head>
+  <body>
+    <div class="login-left">
+      {% if error_statement!=" " %}
+      <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <strong>{{ error_statement }}</strong>
+      </div>
+      {% endif %}
+      <div class="login-form">
+        <h1><strong>Login</strong></h1>
+        <br>
+        <h3>Welcome back! </h3>
+        <p>please enter your information</p>
+        <br>
+        <form action="/login" method="POST">
+          <div>
+            <span class="input input--juro">
+				<input class="input__field input__field--juro" type="text" id="input-id"placeholder="Enter your ID" name="ID" size="20" maxlength="10" value="{{username}}" pattern="[^',{}:;()%*!.\\/\x22]+" required>
+				<label class="input__label input__label--juro" for="input-id">
+					<span class="input__label-content input__label-content--juro">User ID: </span>
+				</label>
+			</span>
+            <br>
+            <span class="input input--juro">
+				<input class="input__field input__field--juro" type="password" id="input-pass" placeholder="Enter your Password" name="Password" maxlength="15" size="20" pattern="[^',{}:;()%*!.\\/\x22]+" required>
+				<label class="input__label input__label--juro" for="input-pass">
+					<span class="input__label-content input__label-content--juro">Password: </span>
+				</label>
+			</span>
+            <br>
+            <input class="btnlogin " type="submit" value="Login">
+            <!--<button type="submit" class="btnlogin" >
+            <p class="btnLable">Login</p>
+            <a  class="btnLable" href="home.html">Login</a>
+            </button>-->
+          </div>
+        </form>
+		    <br>
+		   <a href="{{url_for('terms')}}"><span style="font-size:small; margin-right: 10%">Terms&conditions </span></a>
+	    </div>
+    </div>
+    <div class="login-right">
+      <img class="login-logo" src="{{url_for('static',filename='YUSIR-LOGO.png')}}" alt="logo image" />
+    </div>
+  </body>
+</html>

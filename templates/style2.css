@@ -1,0 +1,305 @@
+body {
+  margin: 0%;
+  height: 100%;
+}
+h4 {
+  color: #faf7f0;
+  margin-left: 30px;
+  margin-bottom: 0;
+}
+#status_container {
+	position: relative;
+  background-color: #232b37;
+  width: 40%;
+  height: 100%;
+  float: left;
+  border-radius: 1cm; 
+  margin-left: 2%;
+  padding-top: 2%;
+  padding-bottom: 10%;
+}
+#inter-name{
+	color: white;
+	font-size: 1.4em;
+	text-align: center;
+	padding-top: 5%;
+}
+#inter-div {
+  background: white;
+  padding: 15px;
+  border-radius: 3px;
+  width: 60%;
+  margin: auto;
+}
+#congestion_container {
+	position: relative;
+  background-color: #a8cad5;
+  width: 52%;
+  height: 100%;
+  border-radius: 1cm;
+  float: right;
+  margin-right: 3%;
+  padding-top: 2%;
+  padding-bottom: 0%;
+}
+canvas{
+	border:1px solid #a8cad5;
+	width: 90%;
+	margin-left: 1%;
+}
+#analysis{
+	display: flex;
+}
+ul {float: left;
+	margin-left: -6%;
+display: flex; 
+list-style:none; 
+height: 254px; 
+flex-direction: column; 
+justify-content: space-between; 
+border-right: 1px solid; 
+padding-right: 1%;
+width: 11%;}
+li {
+text-align:left;
+position: relative;
+}
+
+#intersection_container {
+	position: relative;
+  background-color: #cecdce;
+  width: 96%;/*المربعات*/
+  height: 40%;
+  border-radius: 1cm;
+  margin-top: 42%;
+  margin-left: 2%;
+  margin-right: 80%;
+  padding-top: 2%;
+  padding-bottom: 11%;
+  
+}
+#menu {
+  margin-top: 17%;
+  margin-left: 5%;
+}
+.btn1 {
+  width: 50%;
+  height: 100%;
+  margin-bottom: 10%;
+  margin-left: 5%;
+  border-radius: 0.5cm;
+  text-align: left;
+}
+button {
+  border-width: 0px;
+  background-color: #ffff; 
+}
+button:hover {
+  background-color: #edece9;
+}
+.icons {
+  margin-right: 10%;
+  margin-left: 5%;
+}
+.logo-img {
+  height: 40%;
+  width: 40%;
+  margin-top: 5%;
+  margin-left: 20%;
+}
+.user {
+  width: 30%;
+  text-align: center;
+  margin-top: 8%;
+  margin-left: 20%;
+}
+.top-rightSide{
+	height: 60%;
+}
+.Intersection {
+	position: relative;
+	bottom: 30px;
+  height: 120px;
+  width: 150px;
+  background-color: #ffff;
+  border-radius: 1.2cm;
+  box-shadow: 10px -2px 10px 3px #aeafaf;
+  margin-right: 7%;
+  float: right;
+}
+/*.intersections {
+  margin-bottom: 3%;
+}*/
+.leftSide {
+  width: 25%;
+  height: 100%;
+  float: left;
+}
+.rightSide {
+  float: right;
+  background-color: #faf7f0;
+  width: 75%;
+  height: 100%;
+  border-radius: 1cm;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+/*.logout {
+  margin-top: 2%;
+}*/
+.login-left{
+  width: 50%;
+  min-height: 100%;
+  float: left;
+}
+.login-right{
+  width: 50%;
+  min-height: 100%;/* if converting % حيقص لوقو يسر*/
+  float: right;
+  background-color: #a8cad574;
+}
+.login-form{
+  width: 50%;
+  margin-top: 14%;
+  margin-left: 25%;
+  text-align: -webkit-center;
+}
+.form_lables{
+ margin-top: 0%;
+ margin-bottom: 2%;
+}
+.inputs{
+  padding-right: 50%;
+}
+.btnLable{
+	/* 100px ,, 30px */
+  width: 150%;
+  height: 100%;
+  display:block;
+  padding-top: 10%;
+  text-align: center;
+  font-size: large;
+  text-decoration: none;
+  color:#ffff;
+  background-color: #0e5f73;
+  border-radius: 0.5cm;
+ 
+}
+.btnlogin{
+  width: 35%;
+  height: 40px;
+  padding-left: 0%;
+  border-radius: 0.5cm;
+  margin-top: 17%;
+  margin-right:15%
+
+}
+.login-logo{
+  width: 50%;
+  height: 50%;
+  margin-top: 30%;
+  margin-left: 30%;
+}
+
+/*Try to add effect to input boxes*/
+.input {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	margin: 1em;
+	max-width: 350px;
+	width: calc(100% - 2em);
+	vertical-align: top;
+}
+.input__field {
+	position: relative;
+	display: block;
+	float: right;
+	padding: 0.8em;
+	width: 60%;
+	border: none;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #aaa;
+	font-weight: bold;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-appearance: none; /* for box shadows to show on iOS */
+}
+.input__field:focus {
+	outline: none;
+}
+.input__label {
+	display: inline-block;
+	float: none;
+	padding: 0 1em;
+	width: 40%;
+	color: #000000;
+	font-weight: bold;
+	font-size: 70.25%;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.input__label-content {
+	position: relative;
+	display: block;
+	padding: 1.6em 0;
+	width: 100%;
+}
+.input--juro {
+	overflow: hidden;
+}
+.input__field--juro {
+	position: absolute;
+	z-index: 100;
+	padding: 2.75em 0.75em 0;
+	width: 100%;
+	background: transparent;
+	color: #1784cd;
+	font-size: 0.85em;
+}
+.input__label--juro {
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	text-align: left;
+}
+.input__label-content--juro {
+	padding: 2em 1em;
+	-webkit-transform-origin: 0% 50%;
+	transform-origin: 0% 50%;
+	-webkit-transition: -webkit-transform 0.3s, color 0.3s;
+	transition: transform 0.3s, color 0.3s;
+	text-rendering: geometricPrecision;
+}
+.input__label--juro::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0px solid transparent;
+	-webkit-transition: border-width 0.3s, border-color 0.3s;
+	transition: border-width 0.3s, border-color 0.3s;
+}
+.input__field--juro:focus + .input__label--juro::before,
+.input--filled .input__label--juro::before {
+	border-width: 8px;
+	border-color: #a8cad574;
+	border-top-width: 2em;
+}
+.input__field--juro:focus + .input__label--juro .input__label-content--juro,
+.input--filled .input__label--juro .input__label-content--juro {
+	color: #000;
+	-webkit-transform: translate3d(0, -1.5em, 0) scale3d(0.75, 0.75, 1);
+	transform: translate3d(0, -1.5em, 0) scale3d(0.75, 0.75, 1) translateZ(1px);
+}
